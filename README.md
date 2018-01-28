@@ -56,7 +56,8 @@ We can add some alias in package.json to avoid command line
 },
 ```
 
-Create the configuration file named `webpack?.config.js` at the project's root
+Create the configuration file named `webpack
+.config.js` at the project's root
 ```js
 // Start with this 
 module.exports = {
@@ -82,4 +83,47 @@ output: {
 }
 ```
 
+### 2 - Loaders (Babeljs & Browser compatibilities -- IE6 Forever <3)
 
+Explications : Le coeur de webpack est un emsemble de loaders que l'on va ajouter à notre configuration pour détailler ce qu'on souhaite faire des fichiers que l'on donne en entrée.
+
+Les modules ont des règles qui sont détaillée par la suite. Chaque règle est appliquée à une sorte bien précise de fichier. La clef `test` permet de faire ce filtre avec des regex.
+
+We install Babeljs as a loader so that javascript are understood by old browsers (ES2015 is unknow by old browsers, but we want to use it !).
+```bash
+npm install --save-dev babel-loader babel-core babel-preset-env
+```
+
+Babel rule model
+```js
+// Adding module for loaders
+module: {
+     // Array of set of rules
+     // Rule is an object
+     rules: [{
+          // Regex to select files which answer to this rule
+          test: /\.ts$/,
+          // Exclude node-modules
+          exclude: /(node_modules|bower_components)/,
+          // Specify used loaders
+          // babel-loader is waiting for options, but we can specify them in an other file called .babelrc
+          use: ['babel-loader']
+     }]
+}
+```
+
+Babeljs needs a configuration options for running so we will create a file named `.babelrc` at the project's root.
+
+```json
+{
+     "presets": [
+          ["env", {
+               "targets": {
+                    "browsers": ["last 2 versions", "safari >= 7"]
+               }
+          }]
+     ]
+}
+```
+
+`presets` allow you to specify with which browser you want to be compatible. (Configuration exemple was taken at : https://babeljs.io/docs/plugins/preset-env/. Specify yout wanted browsers !).
