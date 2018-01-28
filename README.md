@@ -3,47 +3,55 @@ Example of a webpack project configuration integrated with symfony 4.0.
 
 ## Minimal requirements of Symfony
 Creation of symfony project.
-
-     composer create-project symfony/skeleton symfony-webpack-example
+```bash
+composer create-project symfony/skeleton symfony-webpack-example
+```
 
 Installation of the server.
-
-     composer require server --dev
+```bash
+composer require server --dev
+```
 
 Make controller maker command available.
-
-     composer require make annotations
+```bash
+composer require make annotations
+```
 
 Use Twig as engine template.
-
-     composer require twig
+```bash
+composer require twig
+```
 
 Create defaut controller to have at least root page.
-
-     php bin/console make:controller
+```bash
+php bin/console make:controller
+```
 
 Let's run the server !
-
-     php bin/console server:run
-
+```bash
+php bin/console server:run
+```
 
 ## Installation and configuration about Webpack
 Init NPM project.
-
-     npm init -y
+```bash
+npm init -y
+```
 
 Loading webpack's dependancies. Webpack is only needed as a development dependance.
-
-     npm install --save-dev webpack 
+```bash
+npm install --save-dev webpack 
+```
 
 Webpack's binary is now available at `./node_modules/.bin/webpack`. You can test this with following command : 
+```bash
+./node_modules/.bin/webpack assets/ts/app.ts public/web/bundle.js
+```
 
-     ./node_modules/.bin/webpack assets/ts/app.ts public/web/bundle.js
-     
-Create the configuration file at the project's root
+Create the configuration file named `webpack?.config.js` at the project's root
+```js
+// Start with this 
+module.exports = {
 
-     touch webpack.config.js
-     // Start with this 
-     module.exports = {
-
-     }
+}
+```
