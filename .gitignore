@@ -12,3 +12,7 @@
 
 # Removing lock files
 *.lock
+package-lock.json
+
+# Remove node_modules, your bandwitdh will love you ! :D
+node_modules
