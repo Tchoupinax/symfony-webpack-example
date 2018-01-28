@@ -48,6 +48,14 @@ Webpack's binary is now available at `./node_modules/.bin/webpack`. You can test
 ./node_modules/.bin/webpack assets/ts/app.ts public/web/bundle.js
 ```
 
+We can add some alias in package.json to avoid command line
+```json
+"scripts": {
+     "dev": "webpack",
+     "test": "echo \"Error: no test specified\" && exit 1"
+},
+```
+
 Create the configuration file named `webpack?.config.js` at the project's root
 ```js
 // Start with this 
@@ -55,3 +63,23 @@ module.exports = {
 
 }
 ```
+
+### 1 - Entry and output path
+
+We are defined entry and output of ours scripts (Relative path needed !)
+```js
+// Entry point
+entry: './assets/ts/app.ts',
+// Automatic reloading on save
+watch: true,
+// Output configuration
+output: {
+     // Directory where put files
+     // As webpack need an absolute path, we use require('path') to resolve it
+     path: path.resolve('./public/web'),
+     // How is called the output file
+     filename: 'bundle.js'
+}
+```
+
+

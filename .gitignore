@@ -16,3 +16,6 @@ package-lock.json
 
 # Remove node_modules, your bandwitdh will love you ! :D
 node_modules
+
+# Remove compiled assets
+public/web/*

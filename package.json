@@ -1,24 +1,25 @@
 {
-  "name": "symfony-webpack-example",
-  "version": "1.0.0",
-  "description": "Example of a webpack project configuration integrated with symfony 4.0",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {
-    "webpack": "^3.10.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tchoupinax/symfony-webpack-example.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Tchoupinax/symfony-webpack-example/issues"
-  },
-  "homepage": "https://github.com/Tchoupinax/symfony-webpack-example#readme"
+    "name": "symfony-webpack-example",
+    "version": "1.0.0",
+    "description": "Example of a webpack project configuration integrated with symfony 4.0",
+    "main": "index.js",
+    "scripts": {
+        "dev": "webpack",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "webpack": "^3.10.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Tchoupinax/symfony-webpack-example.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Tchoupinax/symfony-webpack-example/issues"
+    },
+    "homepage": "https://github.com/Tchoupinax/symfony-webpack-example#readme"
 }
