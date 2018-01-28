@@ -126,4 +126,4 @@ Babeljs needs a configuration options for running so we will create a file named
 }
 ```
 
-`presets` allow you to specify with which browser you want to be compatible. (Configuration exemple was taken at : https://babeljs.io/docs/plugins/preset-env/. Specify yout wanted browsers !).
+`presets` allow you to specify with which browser you want to be compatible. (Configuration exemple was taken [here](https://babeljs.io/docs/plugins/preset-env). Specify your wanted browsers !).
