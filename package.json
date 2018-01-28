@@ -4,7 +4,8 @@
     "description": "Example of a webpack project configuration integrated with symfony 4.0",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack",
+        "dev": "NODE_ENV=dev webpack",
+        "prod": "webpack",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {},
@@ -12,6 +13,7 @@
         "babel-core": "^6.26.0",
         "babel-loader": "^7.1.2",
         "babel-preset-env": "^1.6.1",
+        "uglifyjs-webpack-plugin": "^1.1.6",
         "webpack": "^3.10.0"
     },
     "repository": {

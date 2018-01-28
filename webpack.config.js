@@ -1,12 +1,18 @@
 // Need it for absolute path
 const path = require('path');
+// Adding Uglify-js
+const UglifyJS = require('uglifyjs-webpack-plugin');
+
+// Environement variable
+const dev = process.env.NODE_ENV === "dev";
 
 // Configuration
-module.exports = {
+let webpackConfiguration = {
      // Entry point
      entry: './assets/ts/app.ts',
      // Automatic reloading on save
-     watch: true,
+     // Watch is only running on development environment
+     watch: dev,
      // Output configuration
      output: {
           // Directory where put files
@@ -15,10 +21,15 @@ module.exports = {
           // How is called the output file
           filename: 'bundle.js'
      },
+     // Adding devtool to create source maps
+     // If we want to allow sourcemap in production, we can specify 'source-map'
+     devtool: dev ? 'cheap-module-eval-source-map' : false, // 'source-map',
      // Adding module for loaders
      module: {
           // Array of set of rules
           // Rule is an object
+          //
+          // Meanging : "i want that files which have .ts pass throught babel-loader"
           rules: [{
                // Regex to select files which answer to this rule
                test: /\.ts$/,
@@ -28,5 +39,16 @@ module.exports = {
                // babel-loader is waiting for options, but we can specify them in an other file called .babelrc
                use: ['babel-loader']
           }]
-     }
+     },
+     // Array of used plugins
+     plugins: []
 }
+
+// In the environment way, we add specifies plugins
+if (!dev) {
+     webpackConfiguration.plugins.push(new UglifyJS({
+          // To export source maps in production
+          // sourceMap: true
+     }));
+}
+module.exports = webpackConfiguration;
