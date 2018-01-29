@@ -16,6 +16,7 @@ Make controller maker command available.
 ```bash
 composer require make annotations
 ```
+gs
 
 Use Twig as engine template.
 ```bash
@@ -214,20 +215,18 @@ npm i -D babel-plugin-syntax-dynamic-import
     "presets": [
         ["env", {
              // Adding this value
-            "modules": false,
             "targets": {
                 "browsers": ["last 2 versions", "safari >= 7"]
             }
         }]
     ],
-     // Specify we use the plugin
     "plugins": ["syntax-dynamic-import"]
 }
 ```
 
 You must to fix the path in webpack configuration because by default it searchs file from root
 
-```json
+```js
 output {
     publicPath: "/web/"
 }
