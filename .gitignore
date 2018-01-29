@@ -19,3 +19,5 @@ node_modules
 
 # Remove compiled assets
 public/web/*
+
+.DS_Store

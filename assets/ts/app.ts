@@ -1,12 +1,10 @@
-console.log('salut');
+console.log('sadsdcsclut');
 
-import css from '../scss/app.scss';
+console.log('efef');
 
-let o = 'salut';
+function salut() {
+    console.log('ok');
+}
 
-
-const [b, , c] = [1, 2, 3, 4]
-
-console.log(b);
-
+salut();
 

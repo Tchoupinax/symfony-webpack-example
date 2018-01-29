@@ -1,5 +1,6 @@
 # symfony-webpack-example
 Example of a webpack project configuration integrated with symfony 4.0.
+Configuration tutorial : [Grafikart](https://www.grafikart.fr/formations/webpack/configuration)
 
 ## Minimal requirements of Symfony
 Creation of symfony project.
@@ -251,3 +252,40 @@ filename: !dev ? '[name].[chunkhash:8].js' : '[name].js',
 ```
 
 Adding [manigest plugin](https://github.com/danethurber/webpack-manifest-plugin) to know files 
+
+Clearning
+
+```bash
+npm i -D clean-webpack-plugin
+```
+
+### 9 - Images
+
+```js
+   loader: 'css-loader',
+    options: {
+        importLoaders: 1,
+        minimize: !dev,
+        url: false <==
+    }
+```
+
+Two way to fix it
+
+```bash
+npm i -D url-loader file-loader
+```
+
+url-loarder allows to transform file to base64 if file is lower than what you defined
+
+Optimize
+```bash
+npm i -D img-loader
+```
+
+
+
+
+```bash
+npm i -D eslint-loader
+```
