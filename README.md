@@ -188,5 +188,47 @@ webpackConfiguration.plugins.push(new UglifyJS({
 }));
 ```
 
+### 5 - Lazy loading
 
-// Continue here https://youtu.be/5l5N8I9Jq7o?t=10m1s
+You can lary load your modules with adding your imported modules only at the moment you want to use them.
+
+```js
+// Adding a listener 
+document.getElementById('btn').addEventListener('click', function () {
+     // Import library when button is clicked
+     // Can import several librairies
+     import('jquery, otherLibrary...').then(($, otherName) => {
+          // Do something
+     });
+});
+```
+
+But in this way, webpack does not like that it exists imports that are not at the top of the file. To fix it, we need to add a plugin.
+
+```bash
+npm i -D babel-plugin-syntax-dynamic-import
+```
+
+```json
+{
+    "presets": [
+        ["env", {
+             // Adding this value
+            "modules": false,
+            "targets": {
+                "browsers": ["last 2 versions", "safari >= 7"]
+            }
+        }]
+    ],
+     // Specify we use the plugin
+    "plugins": ["syntax-dynamic-import"]
+}
+```
+
+You must to fix the path in webpack configuration because by default it searchs file from root
+
+```json
+output {
+    publicPath: "/web/"
+}
+```
