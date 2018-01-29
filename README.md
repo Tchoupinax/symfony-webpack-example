@@ -232,3 +232,23 @@ output {
     publicPath: "/web/"
 }
 ```
+
+### 6 - CSS & SCSS
+
+```bash
+npm i -D css-loader style-loader postcss-loader autoprefixer
+```
+
+### 7 - Extern CSS
+
+```bash
+npm i -D extract-text-webpack-plugin
+```
+
+### 8 - Use browser cache (... to fill hard disk mouahahahaha !)
+
+```js
+filename: !dev ? '[name].[chunkhash:8].js' : '[name].js',
+```
+
+Adding [manigest plugin](https://github.com/danethurber/webpack-manifest-plugin) to know files 
