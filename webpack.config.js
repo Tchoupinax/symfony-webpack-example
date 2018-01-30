@@ -39,6 +39,8 @@ if (!dev) {
 let webpackConfiguration = {
     // Alias
     resolve: {
+        // Allow typescript files to be detected
+        extensions: ['.ts','.js'],
         alias: {
             '@css': path.resolve('./assets/css/'),
             '@': path.resolve('./assets/ts/')
