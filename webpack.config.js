@@ -73,44 +73,45 @@ let webpackConfiguration = {
         //
         // Meanging : "i want that files which have .ts pass throught babel-loader"
         rules: [{
-            enforce: 'pre',
-            test: /\.ts$/,
-            exclude: /(node_modules|bower_components)/,
-            use: ['eslint-loader']
-        }, {
-            // Regex to select files which answer to this rule
-            test: /\.ts$/,
-            // Exclude node-modules
-            exclude: /(node_modules|bower_components)/,
-            // Specify used loaders
-            // babel-loader is waiting for options, but we can specify them in an other file called .babelrc
-            use: ['babel-loader']
-        },
-        {
-            test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: [
-                    ...cssLoaders,
-                    'sass-loader'
-                ]
-            })
-        },
-        {
-            test: /\.(png|jpg|gif)$/,
-            use: [{
-                loader: 'url-loader',
-                options: {
-                    name: '[name].[hash:8].[ext]',
-                    limit: 10000 // Max size base64
-                }
+                enforce: 'pre',
+                test: /\.ts$/,
+                exclude: /(node_modules|bower_components)/,
+                use: ['eslint-loader']
             }, {
-                loader: 'img-loader',
-                options: {
-                    enabled: !dev
-                }
-            }]
-        }]
+                // Regex to select files which answer to this rule
+                test: /\.ts$/,
+                // Exclude node-modules
+                exclude: /(node_modules|bower_components)/,
+                // Specify used loaders
+                // babel-loader is waiting for options, but we can specify them in an other file called .babelrc
+                use: ['babel-loader']
+            },
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        ...cssLoaders,
+                        'sass-loader'
+                    ]
+                })
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        name: '[name].[hash:8].[ext]',
+                        limit: 10000 // Max size base64
+                    }
+                }, {
+                    loader: 'img-loader',
+                    options: {
+                        enabled: !dev
+                    }
+                }]
+            }
+        ]
     },
     // Array of used plugins
     plugins: [
