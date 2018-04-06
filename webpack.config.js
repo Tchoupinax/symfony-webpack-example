@@ -75,17 +75,27 @@ let webpackConfiguration = {
         rules: [{
                 enforce: 'pre',
                 test: /\.ts$/,
-                exclude: /(node_modules|bower_components)/,
-                use: ['eslint-loader']
-            }, {
+                loader: ['eslint-loader']
+            },
+            {
+                test: /\.ts?$/,
+                exclude: [/node_modules/],
+                loader: "ts-loader",
+                options: {
+                    configFile: "tsconfig.json"
+                }
+            },
+
+            /*
+            {
                 // Regex to select files which answer to this rule
                 test: /\.ts$/,
-                // Exclude node-modules
-                exclude: /(node_modules|bower_components)/,
+                include: /assets/,
                 // Specify used loaders
                 // babel-loader is waiting for options, but we can specify them in an other file called .babelrc
-                use: ['babel-loader']
+                loader: ['ts-loader', 'babel-loader']
             },
+            */
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
